@@ -1,6 +1,7 @@
 package com.capgemini.idbibankapp.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Random;
 
 public class BankAccount {
@@ -50,5 +51,23 @@ public class BankAccount {
 		return "BankAccount [accountId=" + accountId + ", accountType=" + accountType + ", balance=" + balance + "]";
 	}
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(accountId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BankAccount other = (BankAccount) obj;
+		if (accountId != other.accountId)
+			return false;
+		return true;
+	}
+
 }
