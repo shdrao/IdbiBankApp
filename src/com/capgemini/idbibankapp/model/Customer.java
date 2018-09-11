@@ -1,6 +1,7 @@
 package com.capgemini.idbibankapp.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Random;
 
 public class Customer {
@@ -91,6 +92,30 @@ public class Customer {
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", email=" + email
 				+ ", address=" + address + ", dateOfBirth=" + dateOfBirth + ", account=" + account + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(customerId, email);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (customerId != other.customerId)
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		return true;
 	}
 
 }
