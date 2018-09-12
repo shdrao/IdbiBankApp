@@ -49,16 +49,14 @@ public class FundTransferController extends HttpServlet {
 
 		// request.getParameter("narrator");
 		Customer customer = (Customer) session.getAttribute("customer");
-		// System.out.println("djfs"+customer);
-		/*
-		 * bankAccountService.fundTransfer(customer.getCustomerId(),
-		 * Long.parseLong(request.getParameter("toAccount")),
-		 * Double.parseDouble(request.getParameter("amount")))
-		 */
-
+		request.setAttribute("success", false);
 		if (bankAccountService.fundTransfer(customer.getAccount().getAccountId(), toAccount, amount)) {
-			PrintWriter out = response.getWriter();
-			RequestDispatcher dispatcher = request.getRequestDispatcher("accountDetails.jsp");
+			request.setAttribute("success", true);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			request.setAttribute("success", false);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 			dispatcher.forward(request, response);
 		}
 

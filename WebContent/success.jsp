@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,24 +12,28 @@
 
 </head>
 <body>
-<%@include file="header.jsp" %>
+<%@ include file="header.jsp" %>
 <div class="card m-5">
     <div class="card-header">
         Status
     </div>
     <div class="m-3">
+    <c:if test="${requestScope.success == true}">
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Your request Completed</h4>
-            <p>Your request 25646816556 has been completed succesfully. Thank u for using this service... </p>
+            <p>Your request has been completed succesfully. Thank u for using this service... </p>
             <hr>
-            <p class="mb-0">Are u done,.. Please click here to go Home.... </p>
+            <p class="mb-0">Are u done,.. Please <a href="account">click here</a> to go Home.... </p>
         </div>
+        </c:if>
+         <c:if test="${requestScope.success == false}">
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">Your request not completed</h4>
-            <p>Your request 25646816556 has been not completed. you can try again after some time... </p>
+            <p>Your request has been not completed. you can try again after some time... </p>
             <hr>
-            <p class="mb-0">Are u done,.. Please click here to go Home.... </p>
+            <p class="mb-0">Are u done,.. Please <a href="account">click here</a> to go Home.... </p>
         </div>
+        </c:if>
     </div>
 </div>
 </body>
