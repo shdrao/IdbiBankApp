@@ -19,18 +19,19 @@
         Change Password
     </div>
     <div class="m-3">
+    <form action="changePassword" method="post"></form>
         <form class="row m-2">
             <div class="col-md-4 form-group">
                 <label for="exampleInputEmail1">Old Password</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Account ID">
+                <input type="text" name="oldPassword" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Account ID">
             </div>
             <div class="col-md-4 form-group">
                 <label for="exampleInputEmail1">New Password</label>
-                <input type="text" class="form-control" id="exampleInputEmail81" aria-describedby="emailHelp" placeholder="Name">
+                <input type="text" name="newPassword" class="form-control" id="exampleInputEmail81" aria-describedby="emailHelp" placeholder="Name">
             </div>
             <div class="col-md-4 form-group">
                 <label for="exampleInputEmail1">Confirm Password</label>
-                <input type="text" class="form-control" id="exampleInputsEmai8l1" aria-describedby="emailHelp" placeholder="Date of Birth">
+                <input type="text" name="confirmPassword" class="form-control" id="exampleInputsEmai8l1" aria-describedby="emailHelp" placeholder="Date of Birth">
             </div>
             <div class="col-md-4 form-group">
                 <!--<label for="exampleInputEmail1">Email</label>-->

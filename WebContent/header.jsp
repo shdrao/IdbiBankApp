@@ -41,7 +41,7 @@
                 <a class="nav-link" href="editCustomer.jsp">Edit Profile</a>
             </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-                <a class="nav-link" href="#">Change Password</a>
+                <a class="nav-link" href="changePassword.jsp">Change Password</a>
             </li>
         </ul>
     </div>

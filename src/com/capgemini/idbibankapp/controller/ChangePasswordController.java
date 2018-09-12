@@ -1,32 +1,53 @@
 package com.capgemini.idbibankapp.controller;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class ChangePasswordController
- */
-@WebServlet("/changePassword.do")
+import com.capgemini.idbibankapp.model.Customer;
+import com.capgemini.idbibankapp.service.CustomerService;
+import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
+
+@WebServlet("/changePassword")
 public class ChangePasswordController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ChangePasswordController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private ServletContext context;
+	private CustomerService service;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	public ChangePasswordController() {
+		super();
+
+	}
+
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+
+		super.init(config);
+		service = new CustomerServiceImpl();
+		context = config.getServletContext();
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String oldPassword = request.getParameter("oldPassword");
+		String newPassword = request.getParameter("newPassword");
+		String confirmPassword = request.getParameter("confirmPassword");
+		HttpSession session = request.getSession();
+		//
+
+		Customer customer = (Customer) session.getAttribute("customer");
+		if (confirmPassword.equals(newPassword)) {
+			session.setAttribute("customer", service.updatePassword(customer, oldPassword, newPassword));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("accountDetails.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 }
