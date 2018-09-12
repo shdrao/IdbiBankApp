@@ -31,6 +31,18 @@ public class Customer {
 		this.dateOfBirth = dateOfBirth;
 		this.account = account;
 	}
+	
+	public Customer(long customerId, String customerName, String password, String email, String address, LocalDate dateOfBirth,
+			BankAccount account) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.password = password;
+		this.email = email;
+		this.address = address;
+		this.dateOfBirth = dateOfBirth;
+		this.account = account;
+	}
 
 	public long getCustomerId() {
 		return customerId;

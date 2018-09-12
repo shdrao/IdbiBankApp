@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.capgemini.idbibankapp.dao.CustomerDao;
 import com.capgemini.idbibankapp.dao.impl.CustomerDaoImpl;
+import com.capgemini.idbibankapp.model.Customer;
+import com.capgemini.idbibankapp.service.CustomerService;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private CustomerDao customerDao;
 	private ServletContext context;
+	private CustomerService service;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -26,13 +28,13 @@ public class LoginController extends HttpServlet {
 
 	public LoginController() {
 		super();
-		customerDao = new CustomerDaoImpl();
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
 		
 		
 
