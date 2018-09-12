@@ -49,7 +49,7 @@
 
 <div class="row m-2">
     <div class="col-md-6 mt-5 ml-5 mr-0 mb-5">
-        <div class="card" style="width: 23rem; opacity: 0.9">
+        <div class="card" style="width: 23rem; ">
             <div class="card-body">
                 <h3>Your Money. Your Way</h3>
                 <p style="font-size: 12px">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever survived not only five was popularised in </p>

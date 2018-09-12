@@ -19,19 +19,18 @@
         Change Password
     </div>
     <div class="m-3">
-    <form action="changePassword" method="post"></form>
-        <form class="row m-2">
+        <form action="changePassword" method="post" class="row m-2">
             <div class="col-md-4 form-group">
-                <label for="exampleInputEmail1">Old Password</label>
-                <input type="text" name="oldPassword" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Account ID">
+                <label for="exampleInputEmail1">Old Password*</label>
+                <input type="password" name="oldPassword" class="form-control" required id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Old Password">
             </div>
             <div class="col-md-4 form-group">
-                <label for="exampleInputEmail1">New Password</label>
-                <input type="text" name="newPassword" class="form-control" id="exampleInputEmail81" aria-describedby="emailHelp" placeholder="Name">
+                <label for="exampleInputEmail1">New Password*</label>
+                <input type="password" name="newPassword" class="form-control" required id="exampleInputEmail81" aria-describedby="emailHelp" placeholder="New Password">
             </div>
             <div class="col-md-4 form-group">
-                <label for="exampleInputEmail1">Confirm Password</label>
-                <input type="text" name="confirmPassword" class="form-control" id="exampleInputsEmai8l1" aria-describedby="emailHelp" placeholder="Date of Birth">
+                <label for="exampleInputEmail1">Confirm Password*</label>
+                <input type="password" name="confirmPassword" class="form-control" required id="exampleInputsEmai8l1" aria-describedby="emailHelp" placeholder="Confirm Password">
             </div>
             <div class="col-md-4 form-group">
                 <!--<label for="exampleInputEmail1">Email</label>-->
@@ -42,7 +41,7 @@
                 <!--<input type="text" class="form-control" id="exampleInputEmai8l1" aria-describedby="emailHelp" placeholder="Address">-->
                 <!--<br>-->
                 <button class="btn btn-primary btn-block">Change Password</button>
-                * - Mandatory fields
+                <br>* - Mandatory fields
             </div>
         </form>
     </div>

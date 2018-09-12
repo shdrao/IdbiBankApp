@@ -44,7 +44,7 @@ public class ChangePasswordController extends HttpServlet {
 
 		Customer customer = (Customer) session.getAttribute("customer");
 		if (confirmPassword.equals(newPassword)) {
-			session.setAttribute("customer", service.updatePassword(customer, oldPassword, newPassword));
+			service.updatePassword(customer, oldPassword, newPassword);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("accountDetails.jsp");
 			dispatcher.forward(request, response);
 		}
