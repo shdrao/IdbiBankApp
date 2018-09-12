@@ -19,28 +19,28 @@
         Edit Customer Details
     </div>
     <div class="m-3">
-        <form class="row m-2">
+        <form class="row m-2" action="editprofile" method="post">
             <div class="col-md-4 form-group">
                 <label for="exampleInputEmail1">Customer ID</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Account ID">
+                <input type="number" name="custId" value="${sessionScope.customer.customerId}" readonly class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Account ID">
             </div>
             <div class="col-md-4 form-group">
                 <label for="exampleInputEmail1">Name</label>
-                <input type="number" class="form-control" id="exampleInputEmail81" aria-describedby="emailHelp" placeholder="Name">
+                <input type="text" name="custName" value="${sessionScope.customer.customerName}" class="form-control" id="exampleInputEmail81" aria-describedby="emailHelp" placeholder="Name">
             </div>
             <div class="col-md-4 form-group">
                 <label for="exampleInputEmail1">DOB</label>
-                <input type="date" class="form-control" id="exampleInputsEmai8l1" aria-describedby="emailHelp" placeholder="Date of Birth">
+                <input type="date" name="custDOB" value="${sessionScope.customer.dateOfBirth}" class="form-control" id="exampleInputsEmai8l1" aria-describedby="emailHelp" placeholder="Date of Birth">
             </div>
             <div class="col-md-4 form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input type="email" class="form-control" id="examxpleInputEmai8l1" aria-describedby="emailHelp" placeholder="Email">
+                <input type="email" name="custEmail" value="${sessionScope.customer.email}" class="form-control" id="examxpleInputEmai8l1" aria-describedby="emailHelp" placeholder="Email">
             </div>
             <div class="col-md-4 form-group">
                 <label for="exampleInputEmail1">Address</label>
-                <input type="text" class="form-control" id="exampleInputEmai8l1" aria-describedby="emailHelp" placeholder="Address">
+                <input type="text" name="custAddress" value="${sessionScope.customer.address}" class="form-control" id="exampleInputEmai8l1" aria-describedby="emailHelp" placeholder="Address">
                 <br>
-                <button class="btn btn-primary btn-block">Edit Profile</button>
+                <button type="submit" class="btn btn-primary btn-block">Edit Profile</button>
                 * - Mandatory fields
             </div>
         </form>

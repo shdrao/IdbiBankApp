@@ -38,6 +38,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				customer1.setDateOfBirth(customer.getDateOfBirth());
 				customer1.setEmail(customer.getEmail());
 				DummyDatabase.setCustomers(customers);
+				System.out.println(customer1);
 				return customer1;
 			}
 
