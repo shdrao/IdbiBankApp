@@ -22,9 +22,9 @@ public class DummyDatabase {
 		bankAccounts.add(account2);
 		bankAccounts.add(account3);
 
-		customers.add(new Customer("John", "ashkdas", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
-		customers.add(new Customer("John", "ashkdas", "asdhGDFjkas@gmail.com", "Airoli", LocalDate.now(), account2));
-		customers.add(new Customer("John", "ashkdas", "asBCVBCdhjkas@gmail.com", "Airoli", LocalDate.now(), account3));
+		customers.add(new Customer(13564,"John", "ashkdas", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
+		customers.add(new Customer(12345,"John", "ashkdas", "asdhGDFjkas@gmail.com", "Airoli", LocalDate.now(), account2));
+		customers.add(new Customer(15897,"John", "ashkdas", "asBCVBCdhjkas@gmail.com", "Airoli", LocalDate.now(), account3));
 	}
 
 	public static Set<Customer> getCustomers() {
