@@ -22,7 +22,7 @@ import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
 public class EditProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
-	private CustomerService service = new CustomerServiceImpl();
+	private CustomerService service;
 
 	public EditProfileController() {
 		super();
@@ -31,6 +31,7 @@ public class EditProfileController extends HttpServlet {
 public void init(ServletConfig config) throws ServletException {
 	// TODO Auto-generated method stub
 	super.init();
+	service = new CustomerServiceImpl();
 	context = config.getServletContext();
 }
 	
