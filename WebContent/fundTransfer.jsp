@@ -26,19 +26,19 @@
                 </div> -->
 				<div class="col-md-4 form-group">
 					<label for="exampleInputEmail1">Beneficiary Account*</label> <input
-						type="number" name="toAccount" class="form-control"
+						type="number" name="toAccount" class="form-control" required
 						id="exampleInputEmail81" aria-describedby="emailHelp"
 						placeholder="Account ID">
 				</div>
 				<div class="col-md-4 form-group">
 					<label for="exampleInputEmail1">Amount*</label> <input
-						type="number" name="amount" class="form-control"
+						type="number" name="amount" class="form-control" required
 						id="exampleInputsEmai8l1" aria-describedby="emailHelp"
 						placeholder="Amount">
 				</div>
 				<div class="col-md-4 form-group">
 					<label for="exampleInputEmail1">Narrator</label> <input type="text"
-						name="narrator" class="form-control" id="exampleInputEmai8l1"
+						name="narrator" class="form-control" id="exampleInputEmai8l1" required
 						aria-describedby="emailHelp" placeholder="Narrator"> <br>
 				</div>
 				
