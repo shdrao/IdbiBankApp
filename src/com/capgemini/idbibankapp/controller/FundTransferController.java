@@ -44,17 +44,23 @@ public class FundTransferController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		HttpSession session = request.getSession();
+		long toAccount = Long.parseLong(request.getParameter("toAccount"));
+		long amount = Long.parseLong(request.getParameter("amount"));
 
 		// request.getParameter("narrator");
 		Customer customer = (Customer) session.getAttribute("customer");
-		if (bankAccountService.fundTransfer(customer.getCustomerId(), Long.parseLong(request.getParameter("toAccount")),
-				Double.parseDouble(request.getParameter("amount")))) {
-
+		// System.out.println("djfs"+customer);
+		/*
+		 bankAccountService.fundTransfer(customer.getCustomerId(), Long.parseLong(request.getParameter("toAccount")),
+				Double.parseDouble(request.getParameter("amount")))
+		 */
+		
+		if (bankAccountService.fundTransfer(customer.getAccount().getAccountId(), toAccount, amount)) {
 			PrintWriter out = response.getWriter();
-			out.println(bankAccountService.fundTransfer(customer.getCustomerId(),
-					Long.parseLong(request.getParameter("toAccount")),
-					Double.parseDouble(request.getParameter("amount"))));
+			out.println(bankAccountService.getBalance(customer.getAccount().getAccountId()));
+			out.println(bankAccountService.getBalance(toAccount));
 		}
+	
 
 	}
 

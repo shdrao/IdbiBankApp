@@ -12,16 +12,16 @@ public class DummyDatabase {
 	private static Set<BankAccount> bankAccounts = new HashSet<>();
 
 	static {
-		BankAccount account1 = new BankAccount("SAVINGS", 100);
-		BankAccount account2 = new BankAccount("SAVINGS", 100);
-		BankAccount account3 = new BankAccount("SAVINGS", 100);
+		BankAccount account1 = new BankAccount(221701, "SAVINGS", 100);
+		BankAccount account2 = new BankAccount(221700, "SAVINGS", 100);
+		BankAccount account3 = new BankAccount(221702, "SAVINGS", 100);
 
 		bankAccounts.add(account1);
 		bankAccounts.add(account2);
 		bankAccounts.add(account3);
 
 		customers
-				.add(new Customer(13564, "John", "ashkdas", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
+				.add(new Customer(123456, "John", "ashkdas", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
 		customers.add(new Customer(12345, "John", "12", "asdhGDFjkas@gmail.com", "Airoli", LocalDate.now(), account2));
 		customers.add(
 				new Customer(15897, "John", "ashkdas", "asBCVBCdhjkas@gmail.com", "Airoli", LocalDate.now(), account3));

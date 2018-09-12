@@ -15,7 +15,7 @@ public class BankAccountServiceImpl implements BankAccountService {
 
 	@Override
 	public double withdraw(long accountId, double amount) {
-		if (bankAccountDao.getBalance(accountId) > amount) {
+		if (bankAccountDao.getBalance(accountId) >= amount) {
 			return bankAccountDao.updateBalance(accountId, bankAccountDao.getBalance(accountId) - amount);
 		}
 		return -1;
@@ -28,8 +28,8 @@ public class BankAccountServiceImpl implements BankAccountService {
 
 	@Override
 	public boolean fundTransfer(long fromAcc, long toAcc, double amount) {
-		if (this.withdraw(fromAcc, amount) != -1) {
-			this.deposit(toAcc, amount);
+		if (withdraw(fromAcc, amount) != -1) {
+			System.out.println(this.deposit(toAcc, amount));
 			return true;
 		}
 		return false;
