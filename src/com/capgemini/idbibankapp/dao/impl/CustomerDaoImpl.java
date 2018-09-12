@@ -37,7 +37,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				customer1.setCustomerName(customer.getCustomerName());
 				customer1.setDateOfBirth(customer.getDateOfBirth());
 				customer1.setEmail(customer.getEmail());
-				DummyDatabase.setCustomers(customers);
+				// DummyDatabase.setCustomers(customers);
 				System.out.println(customer1);
 				return customer1;
 			}
@@ -53,7 +53,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			if (customer1.getCustomerId() == customer.getCustomerId()) {
 				if (customer1.getPassword().equals(oldPassword)) {
 					customer1.setPassword(newPassword);
-					DummyDatabase.setCustomers(customers);
+//					DummyDatabase.setCustomers(customers);
 					return true;
 				}
 
