@@ -21,7 +21,8 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9HIrGt0LaP-dZxOI1dUawb5qRKvP3xEOp_pfrM44AhNf9SlA0kQ" style="width: 90px; height: 70px" >
-        <h1>SAFE BANK</h1>
+        <h2>SAFE BANK</h2>
+        <marquee><h5>We care about you and your money... thank u for choosing us...!!!</h5></marquee>
     </div>
 </nav>
 

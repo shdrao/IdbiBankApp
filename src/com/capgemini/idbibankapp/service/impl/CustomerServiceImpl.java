@@ -1,7 +1,5 @@
 package com.capgemini.idbibankapp.service.impl;
 
-import java.util.Set;
-
 import com.capgemini.idbibankapp.dao.CustomerDao;
 import com.capgemini.idbibankapp.dao.impl.CustomerDaoImpl;
 import com.capgemini.idbibankapp.model.Customer;
@@ -9,11 +7,17 @@ import com.capgemini.idbibankapp.service.CustomerService;
 
 public class CustomerServiceImpl implements CustomerService {
 
-	private CustomerDao customerDao = new CustomerDaoImpl();
+	private CustomerDao customerDao;
 
 	@Override
 	public Customer authenticate(Customer customer) {
 		return customerDao.authenticate(customer);
+	}
+
+	public CustomerServiceImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+		customerDao = new CustomerDaoImpl();
 	}
 
 	@Override

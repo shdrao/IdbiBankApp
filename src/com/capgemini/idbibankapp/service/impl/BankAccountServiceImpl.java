@@ -6,7 +6,12 @@ import com.capgemini.idbibankapp.dummy.DummyDatabase;
 import com.capgemini.idbibankapp.service.BankAccountService;
 
 public class BankAccountServiceImpl implements BankAccountService {
-	private BankAccountDao bankAccountDao=new BankAccountDaoImpl();
+	private BankAccountDao bankAccountDao;
+
+	public BankAccountServiceImpl() {
+		super();
+		bankAccountDao = new BankAccountDaoImpl();
+	}
 
 	@Override
 	public double getBalance(long accountId) {
