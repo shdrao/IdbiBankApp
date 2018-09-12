@@ -1,11 +1,12 @@
 package com.capgemini.idbibankapp.service.impl;
 
 import com.capgemini.idbibankapp.dao.BankAccountDao;
+import com.capgemini.idbibankapp.dao.impl.BankAccountDaoImpl;
 import com.capgemini.idbibankapp.dummy.DummyDatabase;
 import com.capgemini.idbibankapp.service.BankAccountService;
 
 public class BankAccountServiceImpl implements BankAccountService {
-	private BankAccountDao bankAccountDao;
+	private BankAccountDao bankAccountDao=new BankAccountDaoImpl();
 
 	@Override
 	public double getBalance(long accountId) {

@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.capgemini.idbibankapp.dummy.DummyDatabase;
+import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.BankAccountService;
 import com.capgemini.idbibankapp.service.CustomerService;
+import com.capgemini.idbibankapp.service.impl.BankAccountServiceImpl;
 import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
 
 @WebServlet("/fundtransfer")
@@ -23,13 +25,13 @@ public class FundTransferController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
 	private CustomerService service = new CustomerServiceImpl();
-	BankAccountService bankAccountService;
+	BankAccountService bankAccountService=new BankAccountServiceImpl();
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		super.init(config);
-		DummyDatabase db = new DummyDatabase();
+		
 		context = config.getServletContext();
 	}
 
@@ -44,13 +46,13 @@ public class FundTransferController extends HttpServlet {
 		
 		
 		//request.getParameter("narrator");
-		session.getAttribute(name)
-		if(bankAccountService.fundTransfer(Long.parseLong(()),Long.parseLong(request.getParameter("toAccount")), 
+		Customer customer=(Customer) session.getAttribute("customer");
+		if(bankAccountService.fundTransfer(customer.getCustomerId(),Long.parseLong(request.getParameter("toAccount")), 
 				Double.parseDouble(request.getParameter("amount")))) {
 		
 			
 			PrintWriter out = response.getWriter();
-		out.println("sucess");}
+			out.println("sucess");}
 		
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("accountDetails.jsp");
 //		dispatcher.forward(request, response);
