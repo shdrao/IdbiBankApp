@@ -11,20 +11,26 @@ public class DummyDatabase {
 	private static Set<Customer> customers = new HashSet<>();
 	private static Set<BankAccount> bankAccounts = new HashSet<>();
 
-	public DummyDatabase() {
-		super();
-		// TODO: Write dummy data
+	static {
 		BankAccount account1 = new BankAccount("SAVINGS", 100);
 		BankAccount account2 = new BankAccount("SAVINGS", 100);
 		BankAccount account3 = new BankAccount("SAVINGS", 100);
-		
+
 		bankAccounts.add(account1);
 		bankAccounts.add(account2);
 		bankAccounts.add(account3);
 
-		customers.add(new Customer(13564,"John", "ashkdas", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
-		customers.add(new Customer(12345,"John", "12", "asdhGDFjkas@gmail.com", "Airoli", LocalDate.now(), account2));
-		customers.add(new Customer(15897,"John", "ashkdas", "asBCVBCdhjkas@gmail.com", "Airoli", LocalDate.now(), account3));
+		customers
+				.add(new Customer(13564, "John", "ashkdas", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
+		customers.add(new Customer(12345, "John", "12", "asdhGDFjkas@gmail.com", "Airoli", LocalDate.now(), account2));
+		customers.add(
+				new Customer(15897, "John", "ashkdas", "asBCVBCdhjkas@gmail.com", "Airoli", LocalDate.now(), account3));
+
+	}
+
+	public DummyDatabase() {
+		super();
+		// TODO: Write dummy data
 	}
 
 	public static Set<Customer> getCustomers() {
