@@ -43,6 +43,8 @@ public class LoginController extends HttpServlet {
 		if (service.authenticate(customer).getEmail() != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("customer", service.authenticate(customer));
+			PrintWriter out = response.getWriter();
+			out.println("Success");
 		} else {
 			PrintWriter out = response.getWriter();
 			out.println("sorry");
