@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +66,12 @@
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm btn-block">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-sm btn-block">Submit</button><br>
+                    <c:if test="${requestScope.success == false}">
+                    <div class="alert alert-danger" role="alert">
+						<b>Customer not found!!!!</b>
+					</div>
+					</c:if>
                 </form>
             </div>
         </div>

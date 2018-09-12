@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -51,8 +52,9 @@ public class LoginController extends HttpServlet {
 			context.log(service.authenticate(customer).toString());
 			response.sendRedirect("account");
 		} else {
-			PrintWriter out = response.getWriter();
-			out.println("sorry");
+			request.setAttribute("success", false);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+			dispatcher.forward(request, response);
 		}
 
 

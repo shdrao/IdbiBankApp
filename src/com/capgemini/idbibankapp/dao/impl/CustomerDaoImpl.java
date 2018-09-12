@@ -20,11 +20,11 @@ public class CustomerDaoImpl implements CustomerDao {
 				if (customer1.getPassword().equals(customer.getPassword())) {
 					return customer1;
 				} else {
-					return null;
+					return customer;
 				}
 			}
 		}
-		return null;
+		return customer;
 	}
 
 	@Override
