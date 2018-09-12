@@ -62,15 +62,5 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	}
 
-	@Override
-	public Set<Customer> getCustomers() {
-		
-		return DummyDatabase.getCustomers();
-	}
 
-	@Override
-	public boolean setCustomers(Set<Customer> customers) {
-		DummyDatabase.setCustomers(customers);
-		return true;
-	}
 }

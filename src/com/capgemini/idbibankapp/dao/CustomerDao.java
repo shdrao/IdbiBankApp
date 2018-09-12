@@ -11,7 +11,5 @@ public interface CustomerDao {
 
 	public boolean updatePassword(Customer customer, String oldPassword, String newPassword);
 
-	public Set<Customer> getCustomers();
 	
-	public boolean setCustomers(Set<Customer> customers);
 }

@@ -12,51 +12,17 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer authenticate(Customer customer) {
-		Set<Customer> customers = customerDao.getCustomers();
-		for (Customer customer1 : customers) {
-			if (customer1.getCustomerId() == customer.getCustomerId()) {
-				if (customer1.getPassword().equals(customer.getPassword())) {
-					return customer1;
-				} else {
-					return null;
-				}
-			}
-		}
-		return null;
+		return customerDao.authenticate(customer);
 	}
 
 	@Override
 	public Customer updateProfile(Customer customer) {
-		Set<Customer> customers = customerDao.getCustomers();
-		for (Customer customer1 : customers) {
-			if (customer1.getCustomerId() == customer.getCustomerId()) {
-
-				customer1.setAddress(customer.getAddress());
-				customer1.setCustomerName(customer.getCustomerName());
-				customer1.setDateOfBirth(customer.getDateOfBirth());
-				customer1.setEmail(customer.getEmail());
-				customerDao.setCustomers(customers);
-				return customer1;
-			}
-
-		}
-		return null;
+		return customerDao.updateProfile(customer);
 	}
 
 	@Override
 	public boolean updatePassword(Customer customer, String oldPassword, String newPassword) {
-		Set<Customer> customers = customerDao.getCustomers();
-		for (Customer customer1 : customers) {
-			if (customer1.getCustomerId() == customer.getCustomerId()) {
-				if (customer1.getPassword().equals(oldPassword)) {
-					customer1.setPassword(newPassword);
-					customerDao.setCustomers(customers);
-					return true;
-				}
-
-			}
-		}
-		return false;
+		return customerDao.updatePassword(customer, oldPassword, newPassword);
 
 	}
 
