@@ -75,11 +75,11 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">12534885</th>
-                        <td>Adam John</td>
-                        <td>30 May 1859</td>
-                        <td style="font-size: 14px">asdlkasdkekgdskdk@gmail.com</td>
-                        <td style="font-size: 14px">CKP, Airoli, Mumbai 560034</td>
+                        <th scope="row">${sessionScope.customer.customerId }</th>
+                        <td>${sessionScope.customer.customerName }</td>
+                        <td>${sessionScope.customer.dateOfBirth }</td>
+                        <td style="font-size: 14px">${sessionScope.customer.email }</td>
+                        <td style="font-size: 14px">${sessionScope.customer.address }</td>
                     </tr>
                     </tbody>
                 </table>
@@ -100,16 +100,16 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">125322224885</th>
-                        <td>Savings</td>
-                        <td>15886</td>
+                        <th scope="row">${sessionScope.customer.account.accountId}</th>
+                        <td>${sessionScope.customer.account.accountType}</td>
+                        <td>${sessionScope.customer.account.balance}</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <div class="col-md-5 mt-5 ml-0">
+    <div class="col-md-5 mt-5 ml-0" hidden>
         <div class="card">
             <div class="card-header">
                 Transaction Details

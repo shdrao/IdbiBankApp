@@ -3,12 +3,13 @@ package com.capgemini.idbibankapp.service.impl;
 import java.util.Set;
 
 import com.capgemini.idbibankapp.dao.CustomerDao;
+import com.capgemini.idbibankapp.dao.impl.CustomerDaoImpl;
 import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.CustomerService;
 
 public class CustomerServiceImpl implements CustomerService {
 
-	private CustomerDao customerDao;
+	private CustomerDao customerDao = new CustomerDaoImpl();
 
 	@Override
 	public Customer authenticate(Customer customer) {
