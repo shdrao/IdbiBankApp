@@ -1,6 +1,5 @@
 package com.capgemini.idbibankapp.dao.impl;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import com.capgemini.idbibankapp.dao.CustomerDao;
@@ -11,7 +10,6 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	public CustomerDaoImpl() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

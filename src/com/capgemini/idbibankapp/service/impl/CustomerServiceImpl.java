@@ -2,15 +2,17 @@ package com.capgemini.idbibankapp.service.impl;
 
 import java.util.Set;
 
-import com.capgemini.idbibankapp.dummy.DummyDatabase;
+import com.capgemini.idbibankapp.dao.CustomerDao;
 import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.CustomerService;
 
 public class CustomerServiceImpl implements CustomerService {
 
+	private CustomerDao customerDao;
+
 	@Override
 	public Customer authenticate(Customer customer) {
-		Set<Customer> customers = DummyDatabase.getCustomers();
+		Set<Customer> customers = customerDao.getCustomers();
 		for (Customer customer1 : customers) {
 			if (customer1.getCustomerId() == customer.getCustomerId()) {
 				if (customer1.getPassword().equals(customer.getPassword())) {
@@ -25,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer updateProfile(Customer customer) {
-		Set<Customer> customers = DummyDatabase.getCustomers();
+		Set<Customer> customers = customerDao.getCustomers();
 		for (Customer customer1 : customers) {
 			if (customer1.getCustomerId() == customer.getCustomerId()) {
 
@@ -33,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
 				customer1.setCustomerName(customer.getCustomerName());
 				customer1.setDateOfBirth(customer.getDateOfBirth());
 				customer1.setEmail(customer.getEmail());
-				DummyDatabase.setCustomers(customers);
+				customerDao.setCustomers(customers);
 				return customer1;
 			}
 
@@ -43,12 +45,12 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public boolean updatePassword(Customer customer, String oldPassword, String newPassword) {
-		Set<Customer> customers = DummyDatabase.getCustomers();
+		Set<Customer> customers = customerDao.getCustomers();
 		for (Customer customer1 : customers) {
 			if (customer1.getCustomerId() == customer.getCustomerId()) {
 				if (customer1.getPassword().equals(oldPassword)) {
 					customer1.setPassword(newPassword);
-					DummyDatabase.setCustomers(customers);
+					customerDao.setCustomers(customers);
 					return true;
 				}
 
