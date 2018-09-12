@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		String custId = request.getParameter("userName");
+		String custId = request.getParameter("custId");
 		String password = request.getParameter("password");
 		
 		Customer customer = new Customer(custId, null, password, null, null, null);
