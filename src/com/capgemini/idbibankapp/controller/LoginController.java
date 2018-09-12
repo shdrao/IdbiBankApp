@@ -24,11 +24,11 @@ import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
-	private CustomerService service = new CustomerServiceImpl();
+	private CustomerService service;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		DummyDatabase db = new DummyDatabase();
+		service = new CustomerServiceImpl();
 		context = config.getServletContext();
 	}
 

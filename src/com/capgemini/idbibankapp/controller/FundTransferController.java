@@ -24,14 +24,15 @@ import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
 public class FundTransferController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
-	private CustomerService service = new CustomerServiceImpl();
-	BankAccountService bankAccountService=new BankAccountServiceImpl();
+	private CustomerService service;
+	BankAccountService bankAccountService;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 		super.init(config);
-		
+		service = new CustomerServiceImpl();
+		bankAccountService = new BankAccountServiceImpl();
 		context = config.getServletContext();
 	}
 
@@ -43,23 +44,21 @@ public class FundTransferController extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		HttpSession session = request.getSession();
-		
-		
-		//request.getParameter("narrator");
-		Customer customer=(Customer) session.getAttribute("customer");
-		if(bankAccountService.fundTransfer(customer.getCustomerId(),Long.parseLong(request.getParameter("toAccount")), 
+
+		// request.getParameter("narrator");
+		Customer customer = (Customer) session.getAttribute("customer");
+		if (bankAccountService.fundTransfer(customer.getCustomerId(), Long.parseLong(request.getParameter("toAccount")),
 				Double.parseDouble(request.getParameter("amount")))) {
-		
-			
+
 			PrintWriter out = response.getWriter();
-			out.println(bankAccountService.fundTransfer(customer.getCustomerId(),Long.parseLong(request.getParameter("toAccount")), 
-					Double.parseDouble(request.getParameter("amount"))));}
-		
+			out.println(bankAccountService.fundTransfer(customer.getCustomerId(),
+					Long.parseLong(request.getParameter("toAccount")),
+					Double.parseDouble(request.getParameter("amount"))));
+		}
+
+	}
+
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("accountDetails.jsp");
 //		dispatcher.forward(request, response);
-		
-		
-		
-	}
 
 }
