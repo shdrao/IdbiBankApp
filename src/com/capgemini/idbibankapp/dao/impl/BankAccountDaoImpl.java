@@ -20,17 +20,17 @@ public class BankAccountDaoImpl implements BankAccountDao {
 	}
 
 	@Override
-	public boolean updateBalance(long accountId, double newBalance) {
+	public double updateBalance(long accountId, double newBalance) {
 		Set<BankAccount> bankAccounts = DummyDatabase.getBankAccounts();
 
 		for (BankAccount bankAccount : bankAccounts) {
 			if (bankAccount.getAccountId() == accountId) {
 				bankAccount.setBalance(newBalance);
 				DummyDatabase.setBankAccounts(bankAccounts);
-				return true;
+				return bankAccount.getBalance();
 			}
 		}
-		return false;
+		return 0;
 
 	}
 
