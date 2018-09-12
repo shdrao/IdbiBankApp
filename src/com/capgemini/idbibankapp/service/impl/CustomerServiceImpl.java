@@ -1,18 +1,12 @@
-package com.capgemini.idbibankapp.dao.impl;
+package com.capgemini.idbibankapp.service.impl;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import com.capgemini.idbibankapp.dao.CustomerDao;
 import com.capgemini.idbibankapp.dummy.DummyDatabase;
 import com.capgemini.idbibankapp.model.Customer;
+import com.capgemini.idbibankapp.service.CustomerService;
 
-public class CustomerDaoImpl implements CustomerDao {
-
-	public CustomerDaoImpl() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer authenticate(Customer customer) {
@@ -64,15 +58,4 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	}
 
-	@Override
-	public Set<Customer> getCustomers() {
-		
-		return DummyDatabase.getCustomers();
-	}
-
-	@Override
-	public boolean setCustomers(Set<Customer> customers) {
-		DummyDatabase.setCustomers(customers);
-		return true;
-	}
 }
