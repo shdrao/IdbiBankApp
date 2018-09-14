@@ -7,14 +7,15 @@ import com.capgemini.idbibankapp.dummy.DummyDatabase;
 import com.capgemini.idbibankapp.model.Customer;
 
 public class CustomerDaoImpl implements CustomerDao {
+private Set<Customer> customers;
 
 	public CustomerDaoImpl() {
 		super();
+		customers = DummyDatabase.getCustomers();
 	}
 
 	@Override
 	public Customer authenticate(Customer customer) {
-		Set<Customer> customers = DummyDatabase.getCustomers();
 		for (Customer customer1 : customers) {
 			if (customer1.getCustomerId() == customer.getCustomerId()) {
 				if (customer1.getPassword().equals(customer.getPassword())) {
@@ -29,7 +30,6 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public Customer updateProfile(Customer customer) {
-		Set<Customer> customers = DummyDatabase.getCustomers();
 		for (Customer customer1 : customers) {
 			if (customer1.getCustomerId() == customer.getCustomerId()) {
 
@@ -37,7 +37,6 @@ public class CustomerDaoImpl implements CustomerDao {
 				customer1.setCustomerName(customer.getCustomerName());
 				customer1.setDateOfBirth(customer.getDateOfBirth());
 				customer1.setEmail(customer.getEmail());
-				// DummyDatabase.setCustomers(customers);
 				System.out.println(customer1);
 				return customer1;
 			}
@@ -48,12 +47,10 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public boolean updatePassword(Customer customer, String oldPassword, String newPassword) {
-		Set<Customer> customers = DummyDatabase.getCustomers();
 		for (Customer customer1 : customers) {
 			if (customer1.getCustomerId() == customer.getCustomerId()) {
 				if (customer1.getPassword().equals(oldPassword)) {
 					customer1.setPassword(newPassword);
-//					DummyDatabase.setCustomers(customers);
 					return true;
 				}
 

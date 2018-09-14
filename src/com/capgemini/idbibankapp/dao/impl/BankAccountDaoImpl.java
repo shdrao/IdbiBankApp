@@ -7,10 +7,15 @@ import com.capgemini.idbibankapp.dummy.DummyDatabase;
 import com.capgemini.idbibankapp.model.BankAccount;
 
 public class BankAccountDaoImpl implements BankAccountDao {
+	private Set<BankAccount> bankAccounts;
+
+	public BankAccountDaoImpl() {
+		super();
+		bankAccounts = DummyDatabase.getBankAccounts();
+	}
 
 	@Override
 	public double getBalance(long accountId) {
-		Set<BankAccount> bankAccounts = DummyDatabase.getBankAccounts();
 		for (BankAccount bankAccount : bankAccounts) {
 			if (bankAccount.getAccountId() == accountId) {
 				return bankAccount.getBalance();
@@ -21,7 +26,6 @@ public class BankAccountDaoImpl implements BankAccountDao {
 
 	@Override
 	public double updateBalance(long accountId, double newBalance) {
-		Set<BankAccount> bankAccounts = DummyDatabase.getBankAccounts();
 
 		for (BankAccount bankAccount : bankAccounts) {
 			if (bankAccount.getAccountId() == accountId) {
