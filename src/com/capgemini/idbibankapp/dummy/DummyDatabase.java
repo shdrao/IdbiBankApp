@@ -21,7 +21,7 @@ public class DummyDatabase {
 		bankAccounts.add(account3);
 
 		customers
-				.add(new Customer(123456, "John", "ashkdas", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
+				.add(new Customer(123456, "John", "34", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
 		customers.add(new Customer(12345, "John", "12", "asdhGDFjkas@gmail.com", "Airoli", LocalDate.now(), account2));
 		customers.add(
 				new Customer(15897, "John", "ashkdas", "asBCVBCdhjkas@gmail.com", "Airoli", LocalDate.now(), account3));
