@@ -28,10 +28,8 @@ public class ChangePasswordController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-
-		super.init(config);
-		service = new CustomerServiceImpl();
 		context = config.getServletContext();
+		service = (CustomerService) context.getAttribute("service");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -44,10 +42,19 @@ public class ChangePasswordController extends HttpServlet {
 		request.setAttribute("success", false);
 		Customer customer = (Customer) session.getAttribute("customer");
 		if (confirmPassword.equals(newPassword)) {
-			service.updatePassword(customer, oldPassword, newPassword);
-			request.setAttribute("success", true);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
-			dispatcher.forward(request, response);
+			boolean done = service.updatePassword(customer, oldPassword, newPassword);
+			if (done) {
+				request.setAttribute("success", true);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+				dispatcher.forward(request, response);
+			} else {
+				request.setAttribute("success", false);
+				request.setAttribute("error", "Old password error");
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+				dispatcher.forward(request, response);
+			}
+			
 		}
 	}
 

@@ -18,7 +18,7 @@
         Status
     </div>
     <div class="m-3">
-    <c:if test="${requestScope.success == true}">
+    <c:if test="${requestScope.success == true || param.success == true}">
         <div class="alert alert-success" role="alert">
             <h4 class="alert-heading">Your request Completed</h4>
             <p>Your request has been completed succesfully. Thank u for using this service... </p>

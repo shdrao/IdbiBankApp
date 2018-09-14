@@ -43,9 +43,10 @@ public class LoginController extends HttpServlet {
 		response.setContentType("text/html");
 		String custId = request.getParameter("custId");
 		String password = request.getParameter("password");
-		
+
+		context.setAttribute("service", service);
 		Customer customer = new Customer(Long.parseLong(custId), null, password, null, null, LocalDate.now(), null);
-	
+
 		try {
 			customer = service.authenticate(customer);
 			request.setAttribute("success", true);
@@ -59,9 +60,6 @@ public class LoginController extends HttpServlet {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 		}
-		
-	
-
 
 	}
 

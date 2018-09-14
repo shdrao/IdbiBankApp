@@ -27,22 +27,18 @@ public class EditProfileController extends HttpServlet {
 	public EditProfileController() {
 		super();
 	}
-@Override
-public void init(ServletConfig config) throws ServletException {
-	// TODO Auto-generated method stub
-	super.init();
-	service = new CustomerServiceImpl();
-	context = config.getServletContext();
-}
-	
-@Override
-protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	super.doGet(req, resp);
-	
-}
 
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		context = config.getServletContext();
+		service = (CustomerService) context.getAttribute("service");
+	}
 
-		
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		super.doGet(req, resp);
+
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -68,8 +64,6 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 			RequestDispatcher dispatcher = request.getRequestDispatcher("editCustomer.jsp");
 			dispatcher.forward(request, response);
 		}
-		
-		
 
 	}
 

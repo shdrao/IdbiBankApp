@@ -13,7 +13,7 @@ public class DummyDatabase {
 
 	static {
 		BankAccount account1 = new BankAccount(221701, "SAVINGS", 120);
-		BankAccount account2 = new BankAccount(221700, "SAVINGS", 100);
+		BankAccount account2 = new BankAccount(221700, "SAVINGS", 1000);
 		BankAccount account3 = new BankAccount(221702, "SAVINGS", 100);
 
 		bankAccounts.add(account1);

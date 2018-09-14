@@ -31,11 +31,9 @@ public class FundTransferController extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		super.init(config);
-		service = new CustomerServiceImpl();
 		bankAccountService = new BankAccountServiceImpl();
 		context = config.getServletContext();
+		service = (CustomerService) context.getAttribute("service");
 	}
 
 	public FundTransferController() {
@@ -48,35 +46,47 @@ public class FundTransferController extends HttpServlet {
 		HttpSession session = request.getSession();
 		long toAccount = Long.parseLong(request.getParameter("toAccount"));
 		long amount = Long.parseLong(request.getParameter("amount"));
-		
-		String bank = request.getParameter("bank");
-		System.out.println(bank);
-		
+		context.setAttribute("bankService", bankAccountService);
+//		String bank = request.getParameter("bank");
 
-		// request.getParameter("narrator");
 		Customer customer = (Customer) session.getAttribute("customer");
 		request.setAttribute("success", false);
-		try {
-			bankAccountService.fundTransfer(customer.getAccount().getAccountId(), toAccount, amount);
+
+//		System.out.println(bank);
+
+		// request.getParameter("narrator");
+//		if (bank.equals("safe")) {
+
+			try {
+				bankAccountService.fundTransfer(customer.getAccount().getAccountId(), toAccount, amount);
 				request.setAttribute("success", true);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 				dispatcher.forward(request, response);
-			
-		} catch (NegetiveBalanceException e) {
-			// TODO Auto-generated catch block
-			request.setAttribute("success", false);
-			request.setAttribute("error", e.toString());
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
-			dispatcher.forward(request, response);
-			e.printStackTrace();
-		} catch (UserNotFoundException e) {
-			request.setAttribute("success", false);
-			request.setAttribute("error", e.toString());
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
-			dispatcher.forward(request, response);
-			e.printStackTrace();
-		}
 
-	}
+			} catch (NegetiveBalanceException | UserNotFoundException e) {
+				// TODO Auto-generated catch block
+				request.setAttribute("success", false);
+				request.setAttribute("error", e.toString());
+				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+				dispatcher.forward(request, response);
+				e.printStackTrace();
+			}
+		}
+//		} else if (bank.equals("eagle")) {
+////			 http://10.246.92.170:9090/Bank/fundTransfer/?payeeAccountNumber=20239027783&amount=10
+//			try {
+//				bankAccountService.withdraw(customer.getAccount().getAccountId(), amount);
+//				response.sendRedirect("http://10.246.92.170:9090/Bank/fundTransfer?payeeAccountNumber=" + toAccount
+//						+ "&amount=" + amount);
+//
+//			} catch (UserNotFoundException | NegetiveBalanceException e) {
+//				request.setAttribute("success", false);
+//				request.setAttribute("error", e.toString());
+//				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+//				dispatcher.forward(request, response);
+//				e.printStackTrace();
+//			}
+//		}
+//	}
 
 }
