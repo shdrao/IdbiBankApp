@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.capgemini.idbibankapp.dummy.DummyDatabase;
+import com.capgemini.idbibankapp.exceptions.NegetiveBalanceException;
+import com.capgemini.idbibankapp.exceptions.UserNotFoundException;
 import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.BankAccountService;
 import com.capgemini.idbibankapp.service.CustomerService;
@@ -46,18 +48,33 @@ public class FundTransferController extends HttpServlet {
 		HttpSession session = request.getSession();
 		long toAccount = Long.parseLong(request.getParameter("toAccount"));
 		long amount = Long.parseLong(request.getParameter("amount"));
+		
+		String bank = request.getParameter("bank");
+		System.out.println(bank);
+		
 
 		// request.getParameter("narrator");
 		Customer customer = (Customer) session.getAttribute("customer");
 		request.setAttribute("success", false);
-		if (bankAccountService.fundTransfer(customer.getAccount().getAccountId(), toAccount, amount)) {
-			request.setAttribute("success", true);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
-			dispatcher.forward(request, response);
-		} else {
+		try {
+			bankAccountService.fundTransfer(customer.getAccount().getAccountId(), toAccount, amount);
+				request.setAttribute("success", true);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+				dispatcher.forward(request, response);
+			
+		} catch (NegetiveBalanceException e) {
+			// TODO Auto-generated catch block
 			request.setAttribute("success", false);
+			request.setAttribute("error", e.toString());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 			dispatcher.forward(request, response);
+			e.printStackTrace();
+		} catch (UserNotFoundException e) {
+			request.setAttribute("success", false);
+			request.setAttribute("error", e.toString());
+			RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
+			dispatcher.forward(request, response);
+			e.printStackTrace();
 		}
 
 	}

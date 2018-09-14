@@ -57,9 +57,19 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws Se
 		Customer customer = new Customer(customerId, customerName, null, email, address, LocalDate.parse(dateOfBirth),
 				null);
 //		System.out.println(service.updateProfile(customer));
-		session.setAttribute("customer", service.updateProfile(customer));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("editCustomer.jsp");
-		dispatcher.forward(request, response);
+		customer = service.updateProfile(customer);
+		if (customer != null) {
+			request.setAttribute("success", true);
+			session.setAttribute("customer", customer);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("editCustomer.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			request.setAttribute("success", false);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("editCustomer.jsp");
+			dispatcher.forward(request, response);
+		}
+		
+		
 
 	}
 

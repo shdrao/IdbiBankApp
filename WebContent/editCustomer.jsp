@@ -41,6 +41,16 @@
                 <input type="text" name="custAddress" required value="${sessionScope.customer.address}" class="form-control" id="exampleInputEmai8l1" aria-describedby="emailHelp" placeholder="Address">
                 <br>
                 <button type="submit" class="btn btn-primary btn-block">Edit Profile</button><br>
+                <c:if test="${requestScope.success == false}">
+                    <div class="alert alert-danger" role="alert">
+						<b>Customer not found!!!!</b>
+					</div>
+					</c:if>
+					<c:if test="${requestScope.success == true}">
+                    <div class="alert alert-success" role="alert">
+						<b>Done editing</b>
+					</div>
+					</c:if>
                 * - Mandatory fields
             </div>
         </form>

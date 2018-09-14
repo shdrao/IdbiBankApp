@@ -30,11 +30,20 @@
 						id="exampleInputEmail81" aria-describedby="emailHelp"
 						placeholder="Account ID">
 				</div>
+				
 				<div class="col-md-4 form-group">
-					<label for="exampleInputEmail1">Amount*</label> <input
+					<label for="exampleInputEmail1">Bank*</label> <input
 						type="number" name="amount" class="form-control" required
 						id="exampleInputsEmai8l1" aria-describedby="emailHelp"
 						placeholder="Amount">
+				</div>
+				
+				<div class="col-md-4 form-group">
+					<label for="exampleInputEmail1">Amount*</label>
+					<select name="bank" class="form-control">
+					<option value="safe">Safe bank</option>
+					<option value="eagle">Eagle bank</option>
+					</select>
 				</div>
 				<div class="col-md-4 form-group">
 					<label for="exampleInputEmail1">Narrator</label> <input type="text"

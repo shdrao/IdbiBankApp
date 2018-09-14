@@ -29,7 +29,7 @@
          <c:if test="${requestScope.success == false}">
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">Your request not completed</h4>
-            <p>Your request has been not completed. you can try again after some time... </p>
+            <p>Error:=    ${requestScope.error} </p>
             <hr>
             <p class="mb-0">Are u done,.. Please <a href="account.do">click here</a> to go Home.... </p>
         </div>

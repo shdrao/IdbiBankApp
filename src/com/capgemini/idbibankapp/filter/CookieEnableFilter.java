@@ -55,12 +55,9 @@ public class CookieEnableFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		Cookie cookie = new Cookie("check", "true");
 
-		// res.addCookie(cookie);
 		Cookie[] cookies = req.getCookies();
 		if (cookies == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("enableCookie.jsp");

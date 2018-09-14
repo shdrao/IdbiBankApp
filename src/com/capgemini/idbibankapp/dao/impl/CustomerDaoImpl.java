@@ -35,7 +35,6 @@ private Set<Customer> customers;
 
 				customer1.setAddress(customer.getAddress());
 				customer1.setCustomerName(customer.getCustomerName());
-				customer1.setDateOfBirth(customer.getDateOfBirth());
 				customer1.setEmail(customer.getEmail());
 				System.out.println(customer1);
 				return customer1;
