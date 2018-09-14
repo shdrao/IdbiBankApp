@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.capgemini.idbibankapp.model.Customer;
 
 
-@WebServlet("/account")
+@WebServlet("/account.do")
 public class AccountController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  

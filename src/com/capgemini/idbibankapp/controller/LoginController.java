@@ -21,7 +21,7 @@ import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.CustomerService;
 import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
 
-@WebServlet("/login")
+@WebServlet("/login.do")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("customer", service.authenticate(customer));
 			context.log(service.authenticate(customer).toString());
-			response.sendRedirect("account");
+			response.sendRedirect("account.do");
 		} else {
 			request.setAttribute("success", false);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");

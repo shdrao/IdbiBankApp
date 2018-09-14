@@ -58,7 +58,7 @@
             <div class="card-body">
                 <h3>Your Money. Your Way</h3>
                 <p style="font-size: 12px">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever survived not only five was popularised in </p>
-                <form action="login" method="post">
+                <form action="login.do" method="post">
                     <div class="form-group input-group-md">
                         <label for="exampleInputEmail1">Customer ID</label>
                         <input type="number" name="custId" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Coustomer ID">

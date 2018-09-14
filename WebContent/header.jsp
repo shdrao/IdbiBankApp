@@ -45,7 +45,7 @@
         </ul>
     </div>
     <div class="d-flex flex-row-reverse">
-        <div class="p-2"><a class="btn btn-danger btn-sm" href="logout">Logout</a> </div>
+        <div class="p-2"><a class="btn btn-danger btn-sm" href="logout.do">Logout</a> </div>
         <div class="p-2"><h6 class="p-0 m-1" style="color: white"> Welcome ${sessionScope.customer.customerName}</h6></div>&nbsp;
     </div>
 </nav>

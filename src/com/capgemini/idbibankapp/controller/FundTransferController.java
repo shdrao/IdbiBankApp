@@ -20,7 +20,7 @@ import com.capgemini.idbibankapp.service.CustomerService;
 import com.capgemini.idbibankapp.service.impl.BankAccountServiceImpl;
 import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
 
-@WebServlet("/fundtransfer")
+@WebServlet("/fundtransfer.do")
 public class FundTransferController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;

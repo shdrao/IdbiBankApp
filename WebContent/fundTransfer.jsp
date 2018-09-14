@@ -19,7 +19,7 @@
 		<div class="card-header">Transfer Fund</div>
 		<div class="m-3">
 
-			<form action="fundtransfer" class="row m-2" method="post">
+			<form action="fundtransfer.do" class="row m-2" method="post">
 				<!--                 <div class="col-md-4 form-group">
                     <label for="exampleInputEmail1">From Account*</label>
                     <input type="number" name="fromAccount" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Account ID">

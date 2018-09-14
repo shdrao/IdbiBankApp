@@ -15,7 +15,7 @@ import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.CustomerService;
 import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
 
-@WebServlet("/changePassword")
+@WebServlet("/changePassword.do")
 public class ChangePasswordController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private ServletContext context;
