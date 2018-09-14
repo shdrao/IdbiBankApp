@@ -14,7 +14,9 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-        <h1>IDBI Bank</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9HIrGt0LaP-dZxOI1dUawb5qRKvP3xEOp_pfrM44AhNf9SlA0kQ" style="width: 90px; height: 70px" >
+        <h2>SAFE BANK</h2>
+        
     </div>
     <div class="d-flex flex-row-reverse">
       
