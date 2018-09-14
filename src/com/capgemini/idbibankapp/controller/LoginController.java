@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import com.capgemini.idbibankapp.dao.CustomerDao;
 import com.capgemini.idbibankapp.dao.impl.CustomerDaoImpl;
 import com.capgemini.idbibankapp.dummy.DummyDatabase;
+import com.capgemini.idbibankapp.exceptions.UserNotFoundException;
 import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.CustomerService;
 import com.capgemini.idbibankapp.service.impl.CustomerServiceImpl;
@@ -45,17 +46,21 @@ public class LoginController extends HttpServlet {
 		
 		Customer customer = new Customer(Long.parseLong(custId), null, password, null, null, LocalDate.now(), null);
 	
-
-		if (service.authenticate(customer).getEmail() != null) {
+		try {
+			customer = service.authenticate(customer);
+			request.setAttribute("success", true);
 			HttpSession session = request.getSession();
-			session.setAttribute("customer", service.authenticate(customer));
-			context.log(service.authenticate(customer).toString());
+			session.setAttribute("customer", customer);
 			response.sendRedirect("account.do");
-		} else {
+		} catch (UserNotFoundException e) {
+			// TODO Auto-generated catch block
+			context.log(e.toString());
 			request.setAttribute("success", false);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 		}
+		
+	
 
 
 	}

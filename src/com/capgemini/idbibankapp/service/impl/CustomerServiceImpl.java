@@ -2,6 +2,7 @@ package com.capgemini.idbibankapp.service.impl;
 
 import com.capgemini.idbibankapp.dao.CustomerDao;
 import com.capgemini.idbibankapp.dao.impl.CustomerDaoImpl;
+import com.capgemini.idbibankapp.exceptions.UserNotFoundException;
 import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.CustomerService;
 
@@ -10,7 +11,11 @@ public class CustomerServiceImpl implements CustomerService {
 	private CustomerDao customerDao;
 
 	@Override
-	public Customer authenticate(Customer customer) {
+	public Customer authenticate(Customer customer) throws UserNotFoundException {
+		Customer cust = customerDao.authenticate(customer);
+		if (cust.getEmail() == null) {
+			throw new UserNotFoundException("User Not found");
+		}
 		return customerDao.authenticate(customer);
 	}
 

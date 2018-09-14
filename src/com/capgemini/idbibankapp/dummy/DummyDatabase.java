@@ -12,7 +12,7 @@ public class DummyDatabase {
 	private static Set<BankAccount> bankAccounts = new HashSet<>();
 
 	static {
-		BankAccount account1 = new BankAccount(221701, "SAVINGS", 100);
+		BankAccount account1 = new BankAccount(221701, "SAVINGS", 120);
 		BankAccount account2 = new BankAccount(221700, "SAVINGS", 100);
 		BankAccount account3 = new BankAccount(221702, "SAVINGS", 100);
 
@@ -21,10 +21,10 @@ public class DummyDatabase {
 		bankAccounts.add(account3);
 
 		customers
-				.add(new Customer(123456, "John", "34", "asdhjkas@gmail.com", "Airoli", LocalDate.now(), account1));
-		customers.add(new Customer(12345, "John", "12", "asdhGDFjkas@gmail.com", "Airoli", LocalDate.now(), account2));
+				.add(new Customer(123456, "Sharath D Rao", "34", "sharathdrao@gmail.com", "CKP, Mumbai, Airoli", LocalDate.of(1996, 03, 21), account1));
+		customers.add(new Customer(12345, "Sudarshan K Shanbhag", "12", "sudarshanshanbhag@gmail.com", "CKP, Mumbai, Airoli", LocalDate.of(1996, 05, 30), account2));
 		customers.add(
-				new Customer(15897, "John", "ashkdas", "asBCVBCdhjkas@gmail.com", "Airoli", LocalDate.now(), account3));
+				new Customer(15768, "Harini k", "98", "harinik@gmail.com", "CKP, Mumbai, Airoli", LocalDate.of(1996, 03, 21), account3));
 
 	}
 
