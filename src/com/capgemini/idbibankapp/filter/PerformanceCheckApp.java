@@ -10,15 +10,15 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 /**
- * Servlet Filter implementation class PerformanceCheckFilter
+ * Servlet Filter implementation class PerformanceCheckApp
  */
-@WebFilter("/PerformanceCheckFilter")
-public class PerformanceCheckFilter implements Filter {
+@WebFilter("/PerformanceCheckApp")
+public class PerformanceCheckApp implements Filter {
 
     /**
      * Default constructor. 
      */
-    public PerformanceCheckFilter() {
+    public PerformanceCheckApp() {
         // TODO Auto-generated constructor stub
     }
 
