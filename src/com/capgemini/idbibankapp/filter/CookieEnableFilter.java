@@ -63,7 +63,8 @@ public class CookieEnableFilter implements Filter {
 		// res.addCookie(cookie);
 		Cookie[] cookies = req.getCookies();
 		if (cookies == null) {
-			out.println("Enable cookies");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("enableCookie.jsp");
+			dispatcher.forward(request, response);
 		} else {
 			chain.doFilter(request, response);
 		}
