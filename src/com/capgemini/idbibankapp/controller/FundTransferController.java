@@ -72,21 +72,6 @@ public class FundTransferController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-//		} else if (bank.equals("eagle")) {
-////			 http://10.246.92.170:9090/Bank/fundTransfer/?payeeAccountNumber=20239027783&amount=10
-//			try {
-//				bankAccountService.withdraw(customer.getAccount().getAccountId(), amount);
-//				response.sendRedirect("http://10.246.92.170:9090/Bank/fundTransfer?payeeAccountNumber=" + toAccount
-//						+ "&amount=" + amount);
-//
-//			} catch (UserNotFoundException | NegetiveBalanceException e) {
-//				request.setAttribute("success", false);
-//				request.setAttribute("error", e.toString());
-//				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
-//				dispatcher.forward(request, response);
-//				e.printStackTrace();
-//			}
-//		}
-//	}
+
 
 }
