@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-5 mt-5 ml-0" hidden>
+    <div class="col-md-5 mt-5 ml-0" >
         <div class="card">
             <div class="card-header">
                 Transaction Details
@@ -84,18 +84,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td scope="row">Nasjadsakjdkasksakhjkasfkdha sauh dushau 30 May 1256</td>
-                        <td>1255</td>
-                        <td></td>
-                        <td>1254445455598</td>
+                    
+                    <c:forEach var="t" items="${sessionScope.transactions}">
+                     <tr>
+                        <td scope="row">${t.transactionId}&nbsp;${t.transDate} &nbsp;<br>${t.narrator} </td>
+                        <td>${t.credit}</td>
+                        <td>${t.debit}</td>
+                        <td>${t.balance}</td>
                     </tr>
-                    <tr>
-                        <td scope="row">Ndsnjdsvasjkdha sauh dushau</td>
-                        <td></td>
-                        <td>4554</td>
-                        <td>125556565598</td>
-                    </tr>
+                    
+                    
+                    </c:forEach>
+                   
                     </tbody>
                 </table>
             </div>

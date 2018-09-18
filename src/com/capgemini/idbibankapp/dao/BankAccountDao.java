@@ -7,5 +7,10 @@ public interface BankAccountDao {
 
 	public double updateBalance(long accountId, double newBalance);
 
+	public boolean addCreditInfo(long accountId, String narrator, double amount);
+
+	public boolean addDebitInfo(long accountId, String narrator, double amount);
+	
+
 
 }

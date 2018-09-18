@@ -9,7 +9,11 @@ import com.capgemini.idbibankapp.service.CustomerService;
 public class CustomerServiceImpl implements CustomerService {
 
 	private CustomerDao customerDao;
-
+	public CustomerServiceImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+		customerDao = new CustomerDaoImpl();
+	}
 	@Override
 	public Customer authenticate(Customer customer) throws UserNotFoundException {
 		Customer cust = customerDao.authenticate(customer);
@@ -19,11 +23,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDao.authenticate(customer);
 	}
 
-	public CustomerServiceImpl() {
-		super();
-		// TODO Auto-generated constructor stub
-		customerDao = new CustomerDaoImpl();
-	}
+	
 
 	@Override
 	public Customer updateProfile(Customer customer) {

@@ -29,29 +29,21 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpUpgradeHandler;
 import javax.servlet.http.Part;
 
-/**
- * Servlet Filter implementation class CookieEnableFilter
- */
+
 @WebFilter("/login.do")
 public class CookieEnableFilter implements Filter {
 
-	/**
-	 * Default constructor.
-	 */
+	
 	public CookieEnableFilter() {
 		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see Filter#destroy()
-	 */
+
 	public void destroy() {
 		// TODO Auto-generated method stub
 	}
 
-	/**
-	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
-	 */
+
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		response.setContentType("text/html");
@@ -68,9 +60,7 @@ public class CookieEnableFilter implements Filter {
 
 	}
 
-	/**
-	 * @see Filter#init(FilterConfig)
-	 */
+
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 	}

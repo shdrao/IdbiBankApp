@@ -36,6 +36,11 @@
 						<b>Customer not found!!!!</b>
 					</div>
 					</c:if>
+					<c:if test="${requestScope.logout == true}">
+                    <div class="alert alert-danger" role="alert">
+						<b>Successfully Logged out!!</b>
+					</div>
+					</c:if>
                 </form>
             </div>
         </div>

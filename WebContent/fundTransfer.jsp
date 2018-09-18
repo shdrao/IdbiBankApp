@@ -45,11 +45,11 @@
 <!-- 					<option value="eagle">Eagle bank</option> -->
 <!-- 					</select> -->
 <!-- 				</div> -->
-				<div class="col-md-4 form-group">
-					<label for="exampleInputEmail1">Narrator</label> <input type="text"
-						name="narrator" class="form-control" id="exampleInputEmai8l1" required
-						aria-describedby="emailHelp" placeholder="Narrator"> <br>
-				</div>
+<!-- 				<div class="col-md-4 form-group"> -->
+<!-- 					<label for="exampleInputEmail1">Narrator</label> <input type="text" -->
+<!-- 						name="narrator" class="form-control" id="exampleInputEmai8l1" required -->
+<!-- 						aria-describedby="emailHelp" placeholder="Narrator"> <br> -->
+<!-- 				</div> -->
 				
 				<div class="col-md-4 form-group">
 					

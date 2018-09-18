@@ -33,7 +33,8 @@ public class BankAccountServiceImpl implements BankAccountService {
 
 	@Override
 	public double deposit(long accountId, double amount) throws UserNotFoundException {
-		return bankAccountDao.updateBalance(accountId, bankAccountDao.getBalance(accountId) + amount);
+		double bal = bankAccountDao.getBalance(accountId);
+		return bankAccountDao.updateBalance(accountId, bal + amount);
 	}
 
 	@Override
@@ -43,7 +44,9 @@ public class BankAccountServiceImpl implements BankAccountService {
 			throw new NegetiveBalanceException("Entered balance is negetive");
 		}
 		withdraw(fromAcc, amount);
+		bankAccountDao.addDebitInfo(toAcc, "Debit from Account "+fromAcc, amount);
 		deposit(toAcc, amount);
+		bankAccountDao.addCreditInfo(fromAcc, "Credit to account "+toAcc, amount);
 		return true;
 
 //		return false;

@@ -46,7 +46,7 @@ public class LoginController extends HttpServlet {
 
 		context.setAttribute("service", service);
 		Customer customer = new Customer(Long.parseLong(custId), null, password, null, null, LocalDate.now(), null);
-
+		request.setAttribute("logout", false);
 		try {
 			customer = service.authenticate(customer);
 			request.setAttribute("success", true);

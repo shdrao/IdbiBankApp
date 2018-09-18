@@ -59,7 +59,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item active">
-                <a class="nav-link" href="accountDetails.jsp">Accounts <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="account.do">Accounts <span class="sr-only">(current)</span></a>
             </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
                 <a class="nav-link" href="fundTransfer.jsp">Fund Transfer</a>

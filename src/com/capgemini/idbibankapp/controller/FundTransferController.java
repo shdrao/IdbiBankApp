@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.capgemini.idbibankapp.dummy.DummyDatabase;
 import com.capgemini.idbibankapp.exceptions.NegetiveBalanceException;
 import com.capgemini.idbibankapp.exceptions.UserNotFoundException;
+import com.capgemini.idbibankapp.model.BankAccount;
 import com.capgemini.idbibankapp.model.Customer;
 import com.capgemini.idbibankapp.service.BankAccountService;
 import com.capgemini.idbibankapp.service.CustomerService;
@@ -59,6 +60,7 @@ public class FundTransferController extends HttpServlet {
 
 			try {
 				bankAccountService.fundTransfer(customer.getAccount().getAccountId(), toAccount, amount);
+				customer.setAccount(new BankAccount(customer.getAccount().getAccountId(), customer.getAccount().getAccountType(), bankAccountService.getBalance(customer.getAccount().getAccountId())));
 				request.setAttribute("success", true);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp");
 				dispatcher.forward(request, response);
@@ -72,6 +74,4 @@ public class FundTransferController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
-
 }
